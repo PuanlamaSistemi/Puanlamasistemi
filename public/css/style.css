@@ -255,3 +255,166 @@ input[type="range"]::-moz-range-thumb {
 .dark ::-webkit-scrollbar-thumb:hover {
     background: #555555;
 }
+
+/* =========================================
+   Admin Panel Dark Mode Optimizations
+========================================= */
+
+/* Jüri/Yönetici Paneli Başlık */
+.dark .bg-rose-50 {
+    background-color: #1e1612 !important;
+    border-color: #3d2419 !important;
+    color: #ff9a8f !important;
+}
+
+.dark .bg-rose-50 h1 {
+    color: #ff9a8f !important;
+}
+
+.dark .bg-rose-50 p {
+    color: #ffb3a3 !important;
+}
+
+/* İstatistik Kartları */
+.dark .bg-indigo-100 {
+    background-color: #1f2a4a !important;
+    color: #818cf8 !important;
+}
+
+.dark .text-indigo-600,
+.dark .text-indigo-700 {
+    color: #818cf8 !important;
+}
+
+.dark .bg-pink-100 {
+    background-color: #2a1f2b !important;
+    color: #f472b6 !important;
+}
+
+.dark .text-pink-600 {
+    color: #f472b6 !important;
+}
+
+.dark .bg-amber-100 {
+    background-color: #2a2410 !important;
+    color: #fcd34d !important;
+}
+
+.dark .text-amber-600,
+.dark .text-amber-800 {
+    color: #fcd34d !important;
+}
+
+.dark .bg-emerald-100 {
+    background-color: #1a2b24 !important;
+    color: #6ee7b7 !important;
+}
+
+.dark .text-emerald-600 {
+    color: #6ee7b7 !important;
+}
+
+/* Grafikler ve Kartlar */
+.dark .bg-white {
+    background-color: #1e1e1e !important;
+    border-color: #333333 !important;
+    color: #e0e0e0 !important;
+}
+
+.dark .border-gray-100 {
+    border-color: #333333 !important;
+}
+
+.dark .text-gray-50 {
+    color: #e0e0e0 !important;
+}
+
+.dark .bg-gray-50 {
+    background-color: #2d2d2d !important;
+    color: #e0e0e0 !important;
+}
+
+.dark .text-gray-800 {
+    color: #e0e0e0 !important;
+}
+
+.dark .text-gray-700 {
+    color: #d0d0d0 !important;
+}
+
+.dark .border-gray-200 {
+    border-color: #333333 !important;
+}
+
+/* Tablo Satırları */
+.dark tr.border-b.border-gray-100:hover {
+    background-color: #252525 !important;
+}
+
+/* Butonlar */
+.dark .bg-green-100 {
+    background-color: #1a2b24 !important;
+    color: #6ee7b7 !important;
+}
+
+.dark .text-green-700 {
+    color: #6ee7b7 !important;
+}
+
+.dark .bg-green-100:hover {
+    background-color: #1f3a30 !important;
+}
+
+.dark .bg-blue-100 {
+    background-color: #1f2a4a !important;
+    color: #60a5fa !important;
+}
+
+.dark .text-blue-700 {
+    color: #60a5fa !important;
+}
+
+.dark .bg-blue-100:hover {
+    background-color: #25355a !important;
+}
+
+.dark .bg-red-100 {
+    background-color: #2b1f1f !important;
+    color: #f87171 !important;
+}
+
+.dark .text-red-700 {
+    color: #f87171 !important;
+}
+
+.dark .bg-red-100:hover {
+    background-color: #3a2525 !important;
+}
+
+/* Export Butonu */
+.dark .bg-emerald-500 {
+    background-color: #10b981 !important;
+}
+
+.dark .bg-emerald-500:hover {
+    background-color: #059669 !important;
+}
+
+/* Başarı/Hata Mesajları */
+.dark .bg-green-100.border.border-green-300 {
+    background-color: #1a2b24 !important;
+    border-color: #10b981 !important;
+}
+
+.dark .text-green-700.bg-green-100 {
+    color: #6ee7b7 !important;
+}
+
+.dark .bg-red-100.border.border-red-300 {
+    background-color: #2b1f1f !important;
+    border-color: #ef4444 !important;
+}
+
+.dark .text-red-700.bg-red-100 {
+    color: #f87171 !important;
+}

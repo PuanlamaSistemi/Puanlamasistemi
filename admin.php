@@ -105,12 +105,12 @@ require_once 'includes/header.php';
 
 <div class="max-w-6xl mx-auto">
     <div
-        class="flex flex-col md:flex-row justify-between items-center bg-rose-50 border border-rose-200 text-rose-800 p-6 rounded-2xl mb-8">
+        class="flex flex-col md:flex-row justify-between items-center bg-rose-50 dark:bg-rose-950/30 dark:border-rose-900/50 border border-rose-200 text-rose-800 dark:text-rose-300 p-6 rounded-2xl mb-8">
         <div>
-            <h1 class="text-2xl font-bold mb-1 flex items-center gap-2">
+            <h1 class="text-2xl font-bold mb-1 flex items-center gap-2 dark:text-rose-200">
                 <i class="fa-solid fa-triangle-exclamation"></i> Jüri / Yönetici Paneli
             </h1>
-            <p class="opacity-80">
+            <p class="opacity-80 dark:opacity-70">
                 Sistem genelindeki verilere müdahale yetkilisiniz.
             </p>
         </div>
@@ -118,34 +118,34 @@ require_once 'includes/header.php';
 
     <!-- İstatistikler Paneli -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-indigo-50">
-            <div class="w-14 h-14 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-folder-open"></i></div>
+        <div class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-indigo-50 dark:border-indigo-900/50">
+            <div class="w-14 h-14 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-folder-open"></i></div>
             <div class="flex-1 overflow-hidden">
-                <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">Toplam Proje</p>
-                <h3 class="text-2xl font-black text-gray-800"><?php echo $stat_projects; ?></h3>
+                <p class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Toplam Proje</p>
+                <h3 class="text-2xl font-black text-gray-800 dark:text-gray-200"><?php echo $stat_projects; ?></h3>
             </div>
         </div>
-        <div class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-pink-50">
-            <div class="w-14 h-14 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-check-to-slot"></i></div>
+        <div class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-pink-50 dark:border-pink-900/50">
+            <div class="w-14 h-14 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-check-to-slot"></i></div>
             <div class="flex-1 overflow-hidden">
-                <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">Kullanılan Oy</p>
-                <h3 class="text-2xl font-black text-gray-800"><?php echo $stat_votes; ?></h3>
+                <p class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Kullanılan Oy</p>
+                <h3 class="text-2xl font-black text-gray-800 dark:text-gray-200"><?php echo $stat_votes; ?></h3>
             </div>
         </div>
-        <div class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-amber-50">
-            <div class="w-14 h-14 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-fire"></i></div>
+        <div class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-amber-50 dark:border-amber-900/50">
+            <div class="w-14 h-14 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-fire"></i></div>
             <div class="flex-1 overflow-hidden">
-                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">En Çok Oylanan</p>
-                <h3 class="text-sm font-bold text-gray-800 leading-tight line-clamp-1" title="<?php echo htmlspecialchars($most_voted['name'] ?? '-'); ?>"><?php echo htmlspecialchars($most_voted['name'] ?? 'Yok'); ?></h3>
-                <p class="text-xs text-amber-600 font-bold mt-0.5"><?php echo $most_voted ? $most_voted['cnt'] . ' Oy' : '-'; ?></p>
+                <p class="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">En Çok Oylanan</p>
+                <h3 class="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight line-clamp-1" title="<?php echo htmlspecialchars($most_voted['name'] ?? '-'); ?>"><?php echo htmlspecialchars($most_voted['name'] ?? 'Yok'); ?></h3>
+                <p class="text-xs text-amber-600 dark:text-amber-400 font-bold mt-0.5"><?php echo $most_voted ? $most_voted['cnt'] . ' Oy' : '-'; ?></p>
             </div>
         </div>
-        <div class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-emerald-50">
-            <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-star"></i></div>
+        <div class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-emerald-50 dark:border-emerald-900/50">
+            <div class="w-14 h-14 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-star"></i></div>
             <div class="flex-1 overflow-hidden">
-                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">En Yüksek Puanlı</p>
-                <h3 class="text-sm font-bold text-gray-800 leading-tight line-clamp-1" title="<?php echo htmlspecialchars($top_rated['name'] ?? '-'); ?>"><?php echo htmlspecialchars($top_rated['name'] ?? 'Yok'); ?></h3>
-                <p class="text-xs text-emerald-600 font-bold mt-0.5"><?php echo $top_rated ? number_format($top_rated['avg_score'], 1) . ' / 5.0' : '-'; ?></p>
+                <p class="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">En Yüksek Puanlı</p>
+                <h3 class="text-sm font-bold text-gray-800 dark:text-gray-200 leading-tight line-clamp-1" title="<?php echo htmlspecialchars($top_rated['name'] ?? '-'); ?>"><?php echo htmlspecialchars($top_rated['name'] ?? 'Yok'); ?></h3>
+                <p class="text-xs text-emerald-600 dark:text-emerald-400 font-bold mt-0.5"><?php echo $top_rated ? number_format($top_rated['avg_score'], 1) . ' / 5.0' : '-'; ?></p>
             </div>
         </div>
     </div>
@@ -154,15 +154,15 @@ require_once 'includes/header.php';
     <?php if(count($pie_labels) > 0): ?>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <!-- Oy Dağılımı (Pie Chart) -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col items-center">
-            <h3 class="text-lg font-bold text-gray-800 mb-4 self-start">Projelere Göre Oy Dağılımı</h3>
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 flex flex-col items-center">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4 self-start">Projelere Göre Oy Dağılımı</h3>
             <div class="w-full max-w-sm aspect-square relative">
                 <canvas id="pieChart"></canvas>
             </div>
         </div>
         <!-- Ortalama Puanlar (Bar Chart) -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col items-center">
-            <h3 class="text-lg font-bold text-gray-800 mb-4 self-start">Projelerin Ortalama Puanları</h3>
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 flex flex-col items-center">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4 self-start">Projelerin Ortalama Puanları</h3>
             <div class="w-full h-64 relative">
                 <canvas id="barChart"></canvas>
             </div>
@@ -170,6 +170,11 @@ require_once 'includes/header.php';
     </div>
 
     <script>
+        // Karanlık mod kontrolü
+        const isDarkMode = document.documentElement.classList.contains('dark');
+        const chartTextColor = isDarkMode ? '#d0d0d0' : '#374151';
+        const chartGridColor = isDarkMode ? '#404040' : '#e5e7eb';
+
         // Pie Chart
         const pieCtx = document.getElementById('pieChart').getContext('2d');
         new Chart(pieCtx, {
@@ -188,7 +193,19 @@ require_once 'includes/header.php';
                     borderWidth: 0
                 }]
             },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false, 
+                plugins: { 
+                    legend: { 
+                        position: 'bottom',
+                        labels: {
+                            color: chartTextColor,
+                            font: { size: 12, weight: 'bold' }
+                        }
+                    }
+                }
+            }
         });
 
         // Bar Chart
@@ -210,9 +227,26 @@ require_once 'includes/header.php';
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    y: { beginAtZero: true, max: 5 }
+                    y: { 
+                        beginAtZero: true, 
+                        max: 5,
+                        ticks: { color: chartTextColor },
+                        grid: { color: chartGridColor }
+                    },
+                    x: {
+                        ticks: { color: chartTextColor },
+                        grid: { color: chartGridColor }
+                    }
                 },
-                plugins: { legend: { display: false } }
+                plugins: { 
+                    legend: { 
+                        display: true,
+                        labels: {
+                            color: chartTextColor,
+                            font: { size: 12, weight: 'bold' }
+                        }
+                    }
+                }
             }
         });
     </script>
@@ -220,7 +254,7 @@ require_once 'includes/header.php';
 
     <?php if (isset($success_msg)): ?>
         <div
-            class="bg-green-100/80 border border-green-300 text-green-700 px-4 py-3 rounded-xl mb-6 shadow-sm backdrop-blur-sm flex items-center gap-3">
+            class="bg-green-100/80 dark:bg-green-900/30 dark:border-green-700 dark:text-green-300 border border-green-300 text-green-700 px-4 py-3 rounded-xl mb-6 shadow-sm backdrop-blur-sm flex items-center gap-3">
             <i class="fa-solid fa-circle-check"></i>
             <span class="block sm:inline font-medium"><?php echo $success_msg; ?></span>
         </div>
@@ -228,27 +262,27 @@ require_once 'includes/header.php';
 
     <?php if (isset($error_msg)): ?>
         <div
-            class="bg-red-100/80 border border-red-300 text-red-700 px-4 py-3 rounded-xl mb-6 shadow-sm backdrop-blur-sm flex items-center gap-3">
+            class="bg-red-100/80 dark:bg-red-900/30 dark:border-red-700 dark:text-red-300 border border-red-300 text-red-700 px-4 py-3 rounded-xl mb-6 shadow-sm backdrop-blur-sm flex items-center gap-3">
             <i class="fa-solid fa-circle-exclamation"></i>
             <span class="block sm:inline font-medium"><?php echo $error_msg; ?></span>
         </div>
     <?php endif; ?>
 
     <div class="flex justify-between items-center mb-4">
-        <h2 class="text-xl font-bold text-gray-800">Sistemdeki Projeler</h2>
-        <a href="export.php" class="bg-emerald-500 text-white px-4 py-2 rounded-lg font-bold shadow-sm hover:bg-emerald-600 transition flex items-center gap-2">
+        <h2 class="text-xl font-bold text-gray-800 dark:text-gray-200">Sistemdeki Projeler</h2>
+        <a href="export.php" class="bg-emerald-500 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-bold shadow-sm hover:bg-emerald-600 transition flex items-center gap-2">
             <i class="fa-solid fa-file-csv"></i> Sonuçları İndir (CSV)
         </a>
     </div>
 
-    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
         <table class="w-full text-left border-collapse">
             <thead>
-                <tr class="bg-gray-50 border-b border-gray-200">
-                    <th class="p-4 font-bold text-gray-700">Proje Kodu</th>
-                    <th class="p-4 font-bold text-gray-700">Proje Adı</th>
-                    <th class="p-4 font-bold text-gray-700">Durum</th>
-                    <th class="p-4 text-right font-bold text-gray-700">İşlemler</th>
+                <tr class="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+                    <th class="p-4 font-bold text-gray-700 dark:text-gray-300">Proje Kodu</th>
+                    <th class="p-4 font-bold text-gray-700 dark:text-gray-300">Proje Adı</th>
+                    <th class="p-4 font-bold text-gray-700 dark:text-gray-300">Durum</th>
+                    <th class="p-4 text-right font-bold text-gray-700 dark:text-gray-300">İşlemler</th>
                 </tr>
             </thead>
             <tbody>
@@ -256,19 +290,19 @@ require_once 'includes/header.php';
                 $stmt = $pdo->query("SELECT * FROM projects");
                 while ($row = $stmt->fetch()):
                     ?>
-                    <tr class="border-b border-gray-100 hover:bg-gray-50 transition">
-                        <td class="p-4 font-mono font-bold text-indigo-600"><?php echo $row['id']; ?></td>
-                        <td class="p-4 font-medium text-gray-800"><?php echo htmlspecialchars($row['name']); ?></td>
+                    <tr class="border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
+                        <td class="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-400"><?php echo $row['id']; ?></td>
+                        <td class="p-4 font-medium text-gray-800 dark:text-gray-200"><?php echo htmlspecialchars($row['name']); ?></td>
                         <td class="p-4"><span
-                                class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">Aktif</span></td>
+                                class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs font-bold">Aktif</span></td>
                         <td class="p-4 text-right space-x-2">
                             <a href="vote.php?id=<?php echo urlencode($row['id']); ?>"
-                                class="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded text-sm hover:bg-indigo-200 transition"
+                                class="inline-block bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded text-sm hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition"
                                 title="Proje Sayfasını Görüntüle">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                             <a href="admin_project_details.php?id=<?php echo urlencode($row['id']); ?>"
-                                class="inline-block bg-emerald-100 text-emerald-700 px-3 py-1 rounded text-sm hover:bg-emerald-200 transition"
+                                class="inline-block bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded text-sm hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition"
                                 title="Puan Detayları ve Yorumlar">
                                 <i class="fa-solid fa-list-check"></i> Detay
                             </a>
@@ -280,18 +314,18 @@ require_once 'includes/header.php';
                                 $q_url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . urlencode($v_url);
                             ?>
                             <a href="<?php echo $q_url; ?>" target="_blank"
-                                class="inline-block bg-pink-100 text-pink-700 px-3 py-1 rounded text-sm hover:bg-pink-200 transition"
+                                class="inline-block bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 px-3 py-1 rounded text-sm hover:bg-pink-200 dark:hover:bg-pink-900/50 transition"
                                 title="QR Kodunu Görüntüle (Büyük Boy)">
                                 <i class="fa-solid fa-qrcode"></i> QR
                             </a>
                             <a href="admin_edit.php?id=<?php echo urlencode($row['id']); ?>"
-                                class="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded text-sm hover:bg-blue-200 transition">Düzenle</a>
+                                class="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded text-sm hover:bg-blue-200 dark:hover:bg-blue-900/50 transition">Düzenle</a>
 
                             <form method="POST" action="admin.php" class="inline-block"
                                 onsubmit="return confirm('<?php echo htmlspecialchars($row['name']); ?> projesini silmek istediğinize emin misiniz? Bu işlem geri alınamaz!');">
                                 <input type="hidden" name="delete_project_id" value="<?php echo $row['id']; ?>">
                                 <button type="submit"
-                                    class="bg-red-100 text-red-700 px-3 py-1 rounded text-sm hover:bg-red-200 transition">Sil</button>
+                                    class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-3 py-1 rounded text-sm hover:bg-red-200 dark:hover:bg-red-900/50 transition">Sil</button>
                             </form>
                         </td>
                     </tr>
