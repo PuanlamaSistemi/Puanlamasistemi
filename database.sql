@@ -35,6 +35,8 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `role` enum('jury','student') NOT NULL DEFAULT 'student',
   `project_id` varchar(50) DEFAULT NULL,
+  `profile_title` varchar(100) DEFAULT NULL,
+  `profile_about` text DEFAULT NULL,
   KEY `fk_project` (`project_id`),
   CONSTRAINT `fk_project` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

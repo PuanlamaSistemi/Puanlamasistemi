@@ -64,7 +64,7 @@ require_once 'includes/header.php';
     <div class="glass-card p-8 rounded-3xl mb-8 border border-indigo-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
             <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block">KOD: <?php echo htmlspecialchars($project['id']); ?></span>
-            <h1 class="text-3xl font-extrabold text-gray-800 mb-2"><?php echo htmlspecialchars($project['name']); ?></h1>
+            <h1 class="text-3xl font-extrabold text-gray-800 dark:text-indigo-300 mb-2"><?php echo htmlspecialchars($project['name']); ?></h1>
             <p class="text-gray-500 font-medium">Toplam <span class="font-bold text-indigo-600"><?php echo $total_votes; ?></span> jüri değerlendirmesi.</p>
         </div>
         <div class="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-2xl shadow-lg flex flex-col items-center">

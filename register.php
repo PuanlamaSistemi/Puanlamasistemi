@@ -50,22 +50,22 @@ require_once 'includes/header.php';
         
         <div class="relative z-10">
             <div class="text-center mb-8">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-100/50 text-indigo-600 mb-4 shadow-inner border border-indigo-200">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-100/50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 mb-4 shadow-inner border border-indigo-200 dark:border-indigo-700/50">
                     <i class="fa-solid fa-user-plus text-2xl"></i>
                 </div>
-                <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 to-purple-700 tracking-tight">Kayıt Ol</h2>
-                <p class="text-indigo-900/60 font-medium mt-2">Projelerini yüklemek için hesap oluştur.</p>
+                <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 dark:from-indigo-300 to-purple-700 dark:to-purple-300 tracking-tight">Kayıt Ol</h2>
+                <p class="text-indigo-900 dark:text-indigo-200 font-medium mt-2">Projelerini yüklemek için hesap oluştur.</p>
             </div>
 
             <?php if($error): ?>
-                <div class="bg-red-100/80 border border-red-300 text-red-700 px-4 py-3 rounded-xl mb-6 shadow-sm backdrop-blur-sm flex items-center gap-3">
+                <div class="bg-red-100/80 dark:bg-red-900/30 dark:border-red-700 dark:text-red-300 border border-red-300 text-red-700 px-4 py-3 rounded-xl mb-6 shadow-sm backdrop-blur-sm flex items-center gap-3">
                     <i class="fa-solid fa-circle-exclamation"></i>
                     <span class="block sm:inline font-medium"><?php echo $error; ?></span>
                 </div>
             <?php endif; ?>
             
             <?php if($success): ?>
-                <div class="bg-green-100/80 border border-green-300 text-green-700 px-4 py-3 rounded-xl mb-6 shadow-sm backdrop-blur-sm flex items-center gap-3">
+                <div class="bg-green-100/80 dark:bg-green-900/30 dark:border-green-700 dark:text-green-300 border border-green-300 text-green-700 px-4 py-3 rounded-xl mb-6 shadow-sm backdrop-blur-sm flex items-center gap-3">
                     <i class="fa-solid fa-circle-check"></i>
                     <span class="block sm:inline font-medium"><?php echo $success; ?></span>
                 </div>
@@ -73,29 +73,29 @@ require_once 'includes/header.php';
 
             <form action="register.php" method="POST" class="space-y-6">
                 <div>
-                    <label class="block text-indigo-900 font-bold mb-2 text-sm uppercase tracking-wide">E-Posta Adresi</label>
+                    <label class="block text-indigo-900 dark:text-indigo-300 font-bold mb-2 text-sm uppercase tracking-wide">E-Posta Adresi</label>
                     <div class="relative">
-                        <i class="fa-solid fa-envelope absolute left-4 top-4 text-indigo-400"></i>
+                        <i class="fa-solid fa-envelope absolute left-4 top-4 text-indigo-400 dark:text-indigo-400"></i>
                         <input type="email" name="email" required placeholder="ornek@universite.edu.tr"
-                               class="glass-input w-full pl-12 pr-4 py-3.5 rounded-xl text-gray-800 placeholder-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400/50 transition-all">
+                               class="glass-input w-full pl-12 pr-4 py-3.5 rounded-xl text-gray-800 dark:text-gray-100 placeholder-indigo-300 dark:placeholder-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-400/50 transition-all">
                     </div>
                 </div>
                 
                 <div>
-                    <label class="block text-indigo-900 font-bold mb-2 text-sm uppercase tracking-wide">Şifre</label>
+                    <label class="block text-indigo-900 dark:text-indigo-300 font-bold mb-2 text-sm uppercase tracking-wide">Şifre</label>
                     <div class="relative">
-                        <i class="fa-solid fa-lock absolute left-4 top-4 text-indigo-400"></i>
+                        <i class="fa-solid fa-lock absolute left-4 top-4 text-indigo-400 dark:text-indigo-400"></i>
                         <input type="password" name="password" required placeholder="••••••••"
-                               class="glass-input w-full pl-12 pr-4 py-3.5 rounded-xl text-gray-800 placeholder-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400/50 transition-all">
+                               class="glass-input w-full pl-12 pr-4 py-3.5 rounded-xl text-gray-800 dark:text-gray-100 placeholder-indigo-300 dark:placeholder-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-400/50 transition-all">
                     </div>
                 </div>
 
-                <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold py-4 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition shadow-lg shadow-indigo-300 hover:shadow-xl hover:-translate-y-0.5 duration-300 flex justify-center items-center gap-2">
+                <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 dark:hover:from-indigo-600 dark:hover:to-purple-600 text-white font-bold py-4 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition shadow-lg shadow-indigo-300 dark:shadow-none hover:shadow-xl hover:-translate-y-0.5 duration-300 flex justify-center items-center gap-2">
                     Kayıt Ol <i class="fa-solid fa-arrow-right-to-bracket"></i>
                 </button>
                 
-                <div class="text-center mt-6 border-t border-indigo-100/50 pt-4">
-                    <p class="text-indigo-900/70 font-medium text-sm">Zaten hesabın var mı? <a href="login.php" class="text-indigo-600 font-bold hover:underline hover:text-indigo-800 transition-colors">Giriş Yap</a></p>
+                <div class="text-center mt-6 border-t border-indigo-100/50 dark:border-indigo-800/50 pt-4">
+                    <p class="text-indigo-900 dark:text-indigo-200 font-medium text-sm">Zaten hesabın var mı? <a href="login.php" class="text-indigo-600 dark:text-indigo-400 font-bold hover:underline hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors">Giriş Yap</a></p>
                 </div>
             </form>
         </div>

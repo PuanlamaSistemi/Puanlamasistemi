@@ -17,7 +17,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] !== 'jury') {
                 <i class="fa-solid fa-lock"></i>
             </div>
             
-            <h2 class="text-2xl font-extrabold text-gray-800 mb-2">Erişim Reddedildi</h2>
+            <h2 class="text-2xl font-extrabold text-gray-800 dark:text-indigo-300 mb-2">Erişim Reddedildi</h2>
             <p class="text-gray-500 font-medium mb-8">Bu paneli görüntüleme yetkiniz yok. Sadece jüri üyeleri giriş yapabilir.</p>
             
             <a href="dashboard.php" class="inline-flex items-center justify-center w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold py-3 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition shadow-lg shadow-indigo-300 hover:shadow-xl">
@@ -275,14 +275,14 @@ require_once 'includes/header.php';
         </a>
     </div>
 
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-x-auto">
         <table class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
                     <th class="p-4 font-bold text-gray-700 dark:text-gray-300">Proje Kodu</th>
                     <th class="p-4 font-bold text-gray-700 dark:text-gray-300">Proje Adı</th>
                     <th class="p-4 font-bold text-gray-700 dark:text-gray-300">Durum</th>
-                    <th class="p-4 text-right font-bold text-gray-700 dark:text-gray-300">İşlemler</th>
+                    <th class="p-4 text-center font-bold text-gray-700 dark:text-gray-300">İşlemler</th>
                 </tr>
             </thead>
             <tbody>
@@ -291,42 +291,44 @@ require_once 'includes/header.php';
                 while ($row = $stmt->fetch()):
                     ?>
                     <tr class="border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
-                        <td class="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-400"><?php echo $row['id']; ?></td>
+                        <td class="p-4 font-mono font-bold text-indigo-600 dark:text-indigo-400 text-sm"><?php echo $row['id']; ?></td>
                         <td class="p-4 font-medium text-gray-800 dark:text-gray-200"><?php echo htmlspecialchars($row['name']); ?></td>
                         <td class="p-4"><span
                                 class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs font-bold">Aktif</span></td>
-                        <td class="p-4 text-right space-x-2">
-                            <a href="vote.php?id=<?php echo urlencode($row['id']); ?>"
-                                class="inline-block bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded text-sm hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition"
-                                title="Proje Sayfasını Görüntüle">
-                                <i class="fa-solid fa-eye"></i>
-                            </a>
-                            <a href="admin_project_details.php?id=<?php echo urlencode($row['id']); ?>"
-                                class="inline-block bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded text-sm hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition"
-                                title="Puan Detayları ve Yorumlar">
-                                <i class="fa-solid fa-list-check"></i> Detay
-                            </a>
-                            <?php 
-                                $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
-                                $base_dir = str_replace('\\', '/', dirname($_SERVER['PHP_SELF']));
-                                if($base_dir == '/') $base_dir = '';
-                                $v_url = $protocol . $_SERVER['HTTP_HOST'] . $base_dir . "/vote.php?id=" . urlencode($row['id']);
-                                $q_url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . urlencode($v_url);
-                            ?>
-                            <a href="<?php echo $q_url; ?>" target="_blank"
-                                class="inline-block bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 px-3 py-1 rounded text-sm hover:bg-pink-200 dark:hover:bg-pink-900/50 transition"
-                                title="QR Kodunu Görüntüle (Büyük Boy)">
-                                <i class="fa-solid fa-qrcode"></i> QR
-                            </a>
-                            <a href="admin_edit.php?id=<?php echo urlencode($row['id']); ?>"
-                                class="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded text-sm hover:bg-blue-200 dark:hover:bg-blue-900/50 transition">Düzenle</a>
+                        <td class="p-4 text-center">
+                            <div class="flex flex-wrap justify-center gap-1 md:gap-2">
+                                <a href="vote.php?id=<?php echo urlencode($row['id']); ?>"
+                                    class="inline-flex items-center justify-center bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-sm hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition whitespace-nowrap"
+                                    title="Proje Sayfasını Görüntüle">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+                                <a href="admin_project_details.php?id=<?php echo urlencode($row['id']); ?>"
+                                    class="inline-flex items-center justify-center bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-sm hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition whitespace-nowrap gap-1"
+                                    title="Puan Detayları ve Yorumlar">
+                                    <i class="fa-solid fa-list-check hidden md:inline"></i> <span class="hidden md:inline">Detay</span><span class="inline md:hidden">D</span>
+                                </a>
+                                <?php 
+                                    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
+                                    $base_dir = str_replace('\\', '/', dirname($_SERVER['PHP_SELF']));
+                                    if($base_dir == '/') $base_dir = '';
+                                    $v_url = $protocol . $_SERVER['HTTP_HOST'] . $base_dir . "/vote.php?id=" . urlencode($row['id']);
+                                    $q_url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . urlencode($v_url);
+                                ?>
+                                <a href="<?php echo $q_url; ?>" target="_blank"
+                                    class="inline-flex items-center justify-center bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-sm hover:bg-pink-200 dark:hover:bg-pink-900/50 transition whitespace-nowrap"
+                                    title="QR Kodunu Görüntüle (Büyük Boy)">
+                                    <i class="fa-solid fa-qrcode"></i>
+                                </a>
+                                <a href="admin_edit.php?id=<?php echo urlencode($row['id']); ?>"
+                                    class="inline-flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-sm hover:bg-blue-200 dark:hover:bg-blue-900/50 transition whitespace-nowrap">Düzenle</a>
 
-                            <form method="POST" action="admin.php" class="inline-block"
-                                onsubmit="return confirm('<?php echo htmlspecialchars($row['name']); ?> projesini silmek istediğinize emin misiniz? Bu işlem geri alınamaz!');">
-                                <input type="hidden" name="delete_project_id" value="<?php echo $row['id']; ?>">
-                                <button type="submit"
-                                    class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-3 py-1 rounded text-sm hover:bg-red-200 dark:hover:bg-red-900/50 transition">Sil</button>
-                            </form>
+                                <form method="POST" action="admin.php" class="inline-block"
+                                    onsubmit="return confirm('<?php echo htmlspecialchars($row['name']); ?> projesini silmek istediğinize emin misiniz? Bu işlem geri alınamaz!');">
+                                    <input type="hidden" name="delete_project_id" value="<?php echo $row['id']; ?>">
+                                    <button type="submit"
+                                        class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-sm hover:bg-red-200 dark:hover:bg-red-900/50 transition whitespace-nowrap">Sil</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 <?php endwhile; ?>
