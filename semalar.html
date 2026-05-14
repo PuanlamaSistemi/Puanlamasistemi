@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Şemaları - Çizim Formatı</title>
+    <!-- Mermaid CDN from unpkg -->
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ 
+          startOnLoad: true, 
+          theme: 'default',
+          gantt: { barHeight: 30, leftPadding: 250, rightPadding: 50, topPadding: 50 }
+      });
+    </script>
+    <style>
+        body { font-family: sans-serif; background: #fdfdfd; padding: 20px; }
+        .box { background: white; border: 1px solid #ccc; padding: 20px; margin-bottom: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px;}
+        h2 { border-bottom: 2px solid #5a67d8; padding-bottom: 10px; color: #2d3748; }
+        p { color: #718096; margin-bottom: 20px; font-style: italic;}
+    </style>
+</head>
+<body>
+
+    <h1>Word Belgesine Eklenecek Şemalar</h1>
+    <p>Aşağıdaki çizimlere sağ tıklayıp "Resmi Kopyala" (Copy Image) diyerek doğrudan Word belgenize yapıştırabilirsiniz.</p>
+
+    <!-- GANTT ŞEMASI -->
+    <div class="box">
+        <h2>1. Gantt Şeması</h2>
+        <p>Sağ tıkla -> Resmi Kopyala</p>
+        <div class="mermaid">
+gantt
+    title Proje Takvimi (14 Hafta)
+    dateFormat  YYYY-MM-DD
+    axisFormat  %W. Hafta
+    tickInterval 1 week
+
+    section Analiz ve Tasarım
+    Gereksinim Analizi & Veritabanı       :done, t1, 2024-01-01, 14d
+    Arayüz (UI) Tasarımı                  :done, t2, after t1, 14d
+
+    section Çekirdek Geliştirme
+    PHP & MySQL Altyapı Kurulumu          :done, t3, after t2, 14d
+    Oylama Sistemi ve Giriş (Login)       :done, t4, after t3, 14d
+
+    section Vize Sonrası Eklenecekler
+    Dinamik QR Algoritması                :active, t5, after t4, 14d
+    Admin Paneli & İstatistik             :t6, after t5, 14d
+    Video Yükleme ve Sunum                :t7, after t6, 14d
+        </div>
+    </div>
+
+    <!-- USE CASE ŞEMASI -->
+    <div class="box">
+        <h2>2. UML Kullanım Durum (Use-Case) Şeması</h2>
+        <p>Sağ tıkla -> Resmi Kopyala</p>
+        <div class="mermaid">
+flowchart LR
+    Visitor(["Ziyaretçi (Üye Olmayan)"])
+    Student(["Takım Üyesi (Öğrenci)"])
+    Admin(["Jüri / Yetkili"])
+
+    UC1("Proje Kodu ile Arama Yap")
+    UC2("Projeyi Değerlendir (1-10 Puan)")
+    UC3("Yorum / Geri Bildirim Bırak")
+    UC4("Sisteme Giriş Yap (Login)")
+    UC5("Masa QR Kodunu Görüntüle/İndir")
+    UC6("Gelen Oyları ve Grafikleri Gör")
+    UC7("Tüm Projeleri ve Ortalamaları Gör")
+    UC8("Oyları Sıfırla / Proje Sil")
+
+    Visitor --> UC1
+    Visitor --> UC2
+    Visitor --> UC3
+
+    Student --> UC4
+    Student --> UC5
+    Student --> UC6
+
+    Admin --> UC4
+    Admin --> UC6
+    Admin --> UC7
+    Admin --> UC8
+        </div>
+    </div>
+
+    <!-- E-R ŞEMASI -->
+    <div class="box">
+        <h2>3. Veritabanı Varlık İlişki (E-R) Şeması</h2>
+        <p>Sağ tıkla -> Resmi Kopyala</p>
+        <div class="mermaid">
+erDiagram
+    PROJECTS ||--o{ VOTES : "alır"
+    PROJECTS ||--o{ USERS : "sahiptir"
+
+    PROJECTS {
+        varchar id PK
+        varchar name
+        text description
+        varchar video_url
+        timestamp created_at
+    }
+
+    USERS {
+        int id PK
+        varchar email
+        varchar password
+        enum role
+        varchar project_id FK
+    }
+
+    VOTES {
+        int id PK
+        varchar project_id FK
+        tinyint design_score
+        tinyint tech_score
+        tinyint presentation_score
+        tinyint innovation_score
+        text comment
+        varchar voter_session
+        timestamp created_at
+    }
+        </div>
+    </div>
+
+    <!-- CLASS ŞEMASI -->
+    <div class="box">
+        <h2>4. UML Sınıf (Class) Şeması</h2>
+        <p>Sağ tıkla -> Resmi Kopyala</p>
+        <div class="mermaid">
+classDiagram
+    class Project {
+        +String id
+        +String name
+        +String description
+        +String videoUrl
+        +DateTime createdAt
+        +getAverageScore() Float
+    }
+
+    class User {
+        +Int id
+        +String email
+        +String password
+        +Role role
+        +String projectId
+        +login(email, pass) Boolean
+        +logout() Void
+    }
+
+    class Vote {
+        +Int id
+        +String projectId
+        +Int designScore
+        +Int techScore
+        +Int presentationScore
+        +Int innovationScore
+        +String comment
+        +String voterSession
+        +saveToDatabase() Boolean
+    }
+
+    Project "1" *-- "many" Vote : contains
+    Project "1" *-- "many" User : has_members
+        </div>
+    </div>
+
+</body>
+</html>

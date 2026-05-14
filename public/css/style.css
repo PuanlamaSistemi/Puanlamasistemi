@@ -1,0 +1,257 @@
+/* =========================================
+   Ultra-Luxury Glassmorphism Framework
+   Aydınlık (Light) Tema Optimizasyonu
+========================================= */
+
+/* --- Typography Optimization --- */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Animated Gradient Mesh Background --- */
+.bg-mesh-light {
+    background-color: #f6f8fd;
+    background-image: 
+        radial-gradient(at 40% 20%, hsla(228,100%,74%,0.2) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(189,100%,56%,0.2) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(355,100%,93%,0.5) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, hsla(340,100%,76%,0.2) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(22,100%,77%,0.2) 0px, transparent 50%),
+        radial-gradient(at 80% 100%, hsla(242,100%,70%,0.2) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, hsla(343,100%,76%,0.2) 0px, transparent 50%);
+    background-size: 150% 150%;
+    animation: driftMesh 15s ease infinite alternate;
+    min-height: 100vh;
+}
+
+@keyframes driftMesh {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 100%; }
+}
+
+/* --- Core Glass Utilities --- */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+}
+
+.glass-nav {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px -15px rgba(0,0,0,0.15);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #fff;
+}
+
+/* --- Premium Inputs --- */
+.glass-input {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #818cf8; /* Tailwind indigo-400 */
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15); /* Tailwind indigo-500 */
+}
+
+/* --- Animated Floating Elements --- */
+.float-animation {
+    animation: float 6s ease-in-out infinite;
+}
+.float-animation-delayed {
+    animation: float 6s ease-in-out 3s infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- Premium Range Sliders (vote.php) --- */
+/* Reset */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Track */
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 12px;
+    background: #e0e7ff; /* indigo-100 */
+    border-radius: 9999px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 12px;
+    background: #e0e7ff;
+    border-radius: 9999px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: #4f46e5; /* indigo-600 */
+    margin-top: -6px; /* (height - track_height) / 2 */
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.4);
+    border: 3px solid #fff;
+    transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    background: #4338ca; /* indigo-700 */
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(0.95);
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: #4f46e5;
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.4);
+    border: 3px solid #fff;
+    transition: all 0.2s ease;
+}
+
+/* --- Advanced Progress/Charts (dashboard.php dummy) --- */
+.chart-bar {
+    position: relative;
+    overflow: hidden;
+}
+.chart-bar::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
+}
+
+.pulse-icon {
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(79, 70, 229, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+    background: #c7d2fe;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #818cf8;
+}
+
+/* =========================================
+   Pure Flat Dark Mode
+========================================= */
+.dark body {
+    color: #e0e0e0; /* Açık gri okunaklı metin */
+    background-color: #121212; /* Saf Karanlık Arka Plan */
+}
+
+/* Arka plan renk gradientini ve efektlerini tamamen iptal et */
+.dark .bg-mesh-light {
+    background-color: #121212; 
+    background-image: none !important;
+}
+
+/* Tüm cam öğeler (kartlar, menüler) için saf koyu gri mat görünüm */
+.dark .glass-panel,
+.dark .glass-nav,
+.dark .glass-card {
+    background: #1e1e1e !important; /* Düz mat koyu gri */
+    border: 1px solid #333333 !important; /* Hafif bir sınır çizgisi */
+    box-shadow: none !important; /* Gölgeleri ve cam hissini iptal et */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.dark .glass-nav {
+    border-bottom: 1px solid #333333 !important;
+}
+
+.dark .glass-card:hover {
+    background: #252526 !important; /* Hoverda çok hafif açılır */
+    border-color: #404040 !important;
+    transform: none !important; /* Havaya kalkma animasyonunu iptal et */
+}
+
+/* İnputlar için düz ve mat tasarım */
+.dark .glass-input {
+    background: #2d2d2d !important;
+    border: 1px solid #404040 !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+.dark .glass-input:focus {
+    background: #333333 !important;
+    border-color: #555555 !important;
+}
+
+.dark input[type="range"]::-webkit-slider-track {
+    background: #333333 !important; 
+    box-shadow: none !important;
+}
+.dark input[type="range"]::-moz-range-track {
+    background: #333333 !important;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #121212;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 5px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+}
