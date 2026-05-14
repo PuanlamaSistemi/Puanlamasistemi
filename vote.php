@@ -119,25 +119,25 @@ require_once 'includes/header.php';
 </style>
 
 <?php if($error): ?>
-    <div class="bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-300 px-4 py-3 rounded relative mb-4" role="alert">
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
         <strong class="font-bold">Hata!</strong>
         <span class="block sm:inline"><?php echo $error; ?></span>
         <div class="mt-4">
-            <a href="index.php" class="text-indigo-600 dark:text-indigo-400 hover:underline">Geri Dön</a>
+            <a href="index.php" class="text-indigo-600 hover:underline">Geri Dön</a>
         </div>
     </div>
 <?php elseif($success): ?>
-    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl text-center max-w-2xl mx-auto my-12 dark:border dark:border-gray-700">
+    <div class="bg-white p-8 rounded-2xl shadow-xl text-center max-w-2xl mx-auto my-12">
         <i class="fa-solid fa-circle-check text-6xl text-green-500 mb-4"></i>
-        <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-2">Başarılı!</h2>
-        <p class="text-gray-600 dark:text-gray-300 text-lg">Oyunuz başarıyla veritabanına kaydedildi. Desteğiniz için teşekkür ederiz.</p>
-        <a href="vote.php?id=<?php echo urlencode($project['id']); ?>" class="mt-6 inline-block bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600">Projeye Geri Dön</a>
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Başarılı!</h2>
+        <p class="text-gray-600 text-lg">Oyunuz başarıyla veritabanına kaydedildi. Desteğiniz için teşekkür ederiz.</p>
+        <a href="vote.php?id=<?php echo urlencode($project['id']); ?>" class="mt-6 inline-block bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700">Projeye Geri Dön</a>
     </div>
 <?php elseif($project): ?>
 
     <div class="max-w-5xl mx-auto relative z-10 space-y-8">
         <?php if($comment_msg): ?>
-            <div class="bg-green-100 dark:bg-green-900/30 border border-green-400 dark:border-green-700 text-green-700 dark:text-green-300 px-4 py-3 rounded-2xl relative mb-4 shadow-sm flex items-center" role="alert">
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-2xl relative mb-4 shadow-sm flex items-center" role="alert">
                 <i class="fa-solid fa-circle-check mr-3 text-xl"></i>
                 <span class="block sm:inline font-bold"><?php echo $comment_msg; ?></span>
             </div>
@@ -241,7 +241,7 @@ require_once 'includes/header.php';
 
                     <div class="mt-8 pt-6 border-t border-indigo-100/50 dark:border-indigo-900/50">
                         <label class="block font-bold text-indigo-900 dark:text-indigo-300 mb-3 tracking-wide text-sm uppercase">Yorum ve Geri Bildirim <span class="text-indigo-400 dark:text-indigo-500 font-normal lowercase">(Opsiyonel)</span></label>
-                        <textarea name="comment" rows="3" class="glass-input w-full rounded-2xl p-4 text-gray-800 dark:text-gray-100 placeholder-indigo-300 dark:placeholder-indigo-400 resize-none" placeholder="Örn: Gerçekten çok başarılı bir fikir..."></textarea>
+                        <textarea name="comment" rows="3" class="glass-input w-full rounded-2xl p-4 text-gray-800 dark:text-gray-200 placeholder-indigo-300 dark:placeholder-indigo-700 resize-none" placeholder="Örn: Gerçekten çok başarılı bir fikir..."></textarea>
                     </div>
 
                     <div class="flex justify-end pt-2">
@@ -254,40 +254,40 @@ require_once 'includes/header.php';
 
             <!-- Yorumlar Bölümü -->
             <div class="glass-card rounded-3xl p-6 md:p-8 flex flex-col h-full">
-                <h2 class="text-2xl font-extrabold text-indigo-900 dark:text-indigo-300 mb-6 border-b-2 border-indigo-100/50 dark:border-indigo-900/50 pb-3 inline-block tracking-tight">Değerlendirmeler ve Yorumlar</h2>
+                <h2 class="text-2xl font-extrabold text-indigo-900 mb-6 border-b-2 border-indigo-100/50 pb-3 inline-block  tracking-tight">Değerlendirmeler ve Yorumlar</h2>
                 
                 <div class="overflow-y-auto pr-2 space-y-4 flex-1 max-h-[600px]">
                     <?php if(empty($votes)): ?>
                         <div class="text-center py-10">
-                            <i class="fa-regular fa-comments text-5xl text-indigo-200 dark:text-gray-600 mb-3"></i>
-                            <p class="text-indigo-400 dark:text-indigo-300 font-medium">Henüz hiç değerlendirme yapılmamış.<br>İlk oylayan siz olun!</p>
+                            <i class="fa-regular fa-comments text-5xl text-indigo-200 mb-3"></i>
+                            <p class="text-indigo-400 font-medium">Henüz hiç değerlendirme yapılmamış.<br>İlk oylayan siz olun!</p>
                         </div>
                     <?php else: ?>
                         <?php foreach($votes as $v): 
                             // Bireysel Ortalama Hesaplama (5 üzerinden)
                             $ind_avg = ($v['design_score'] + $v['tech_score'] + $v['presentation_score'] + $v['innovation_score']) / 4 / 2;
                         ?>
-                            <div class="bg-white/60 dark:bg-gray-800/80 dark:border-gray-700 p-5 rounded-2xl border border-white shadow-sm hover:shadow-md transition">
+                            <div class="bg-white/60 dark:bg-white/5 p-5 rounded-2xl border border-white dark:border-gray-600 shadow-sm hover:shadow-md transition">
                                 <div class="flex justify-between items-start mb-2">
                                     <div class="flex items-center gap-2">
                                         <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center text-white font-bold text-xs shadow-sm">
                                             <i class="fa-solid fa-user"></i>
                                         </div>
-                                        <span class="font-bold text-indigo-900 dark:text-indigo-200 text-sm">Anonim Jüri</span>
+                                        <span class="font-bold text-indigo-900 text-sm">Anonim Jüri</span>
                                         
                                         <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'jury'): ?>
                                             <form method="POST" action="vote.php?id=<?php echo urlencode($project['id']); ?>" class="inline ml-2" onsubmit="return confirm('Bu değerlendirmeyi silmek istediğinize emin misiniz?');">
                                                 <input type="hidden" name="delete_comment_id" value="<?php echo $v['id']; ?>">
-                                                <button type="submit" class="text-red-400 dark:text-red-400 hover:text-red-600 dark:hover:text-red-300 text-xs transition px-2 py-1 bg-red-50 dark:bg-red-900/30 dark:border dark:border-red-800/50 rounded-lg"><i class="fa-solid fa-trash"></i> Sil</button>
+                                                <button type="submit" class="text-red-400 hover:text-red-600 text-xs transition px-2 py-1 bg-red-50 dark: bg-red-100 rounded-lg"><i class="fa-solid fa-trash"></i> Sil</button>
                                             </form>
                                         <?php endif; ?>
                                     </div>
-                                    <div class="bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 px-2 py-1 rounded-lg text-xs font-black flex items-center gap-1 border border-amber-200 dark:border-amber-800/50">
+                                    <div class="bg-amber-100 dark:bg-amber-800 text-amber-700 dark:text-amber-300 px-2 py-1 rounded-lg text-xs font-black flex items-center gap-1 border border-amber-200 dark:border-amber-600">
                                         <?php echo number_format($ind_avg, 1); ?> <i class="fa-solid fa-star text-[10px]"></i>
                                     </div>
                                 </div>
                                 <?php if(!empty($v['comment'])): ?>
-                                    <p class="text-gray-700 dark:text-gray-200 text-sm mt-3 bg-white/50 dark:bg-black/20 p-3 rounded-xl border border-indigo-50 dark:border-indigo-900/30 leading-relaxed italic">
+                                    <p class="text-gray-700 dark:text-gray-300 text-sm mt-3 bg-white/50 dark:bg-white/10 p-3 rounded-xl border border-indigo-50 dark:border-indigo-100 leading-relaxed italic">
                                         "<?php echo htmlspecialchars($v['comment']); ?>"
                                     </p>
                                 <?php endif; ?>

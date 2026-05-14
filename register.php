@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Kullanıcı var mı kontrol et
         $check = $pdo->prepare("SELECT id FROM users WHERE email = ?");
         $check->execute([$email]);
-        if ($check->rowCount() > 0) {
+        if ($check->fetch()) {
             $error = "Bu e-posta adresi zaten kullanılıyor.";
         } else {
             // Şifreyi şimdilik düz metin olarak kaydedelim (basit sistem)

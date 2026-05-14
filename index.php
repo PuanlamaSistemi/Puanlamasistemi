@@ -156,7 +156,7 @@ $all_projects = $stmt_all->fetchAll();
                         
                         <div class="flex justify-between items-center border-t border-indigo-100/50 pt-4 relative z-10">
                             <?php if($p['video_url']): ?>
-                                <span class="text-emerald-600 text-[10px] font-bold flex items-center bg-emerald-50 px-2 py-1 rounded-md border border-emerald-100"><i class="fa-solid fa-video mr-1"></i> Yüklü</span>
+                                <span class="text-emerald-600 text-[10px] font-bold flex items-center bg-emerald-50 dark:bg-emerald-800 px-2 py-1 rounded-md border border-emerald-100 dark:border-emerald-600"><i class="fa-solid fa-video mr-1"></i> Yüklü</span>
                             <?php else: ?>
                                 <span class="text-amber-600 text-[10px] font-bold flex items-center bg-amber-50 px-2 py-1 rounded-md border border-amber-100"><i class="fa-solid fa-video-slash mr-1"></i> Yok</span>
                             <?php endif; ?>
@@ -226,3 +226,4 @@ document.getElementById('liveSearchInput')?.addEventListener('input', function(e
 </script>
 
 <?php require_once 'includes/footer.php'; ?>
+

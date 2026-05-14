@@ -249,16 +249,16 @@ require_once 'includes/header.php';
                     </div>
                     
                     <div>
-                        <label class="block text-indigo-900 dark:text-indigo-300 font-bold mb-1 text-sm uppercase tracking-wide">Ekip Üyeleri</label>
-                        <div id="edit-team-container" class="glass-input w-full px-2 py-1.5 rounded-xl flex flex-wrap gap-2 items-center cursor-text bg-white/50 dark:bg-gray-800/50" onclick="this.querySelector('input').focus()">
-                            <input type="text" class="flex-1 min-w-[120px] bg-transparent outline-none border-none text-gray-800 dark:text-gray-100 placeholder-indigo-300 dark:placeholder-indigo-400 px-2" placeholder="İsim yazıp Enter'a basın">
+                        <label class="block text-indigo-900 font-bold mb-1 text-sm uppercase tracking-wide">Ekip Üyeleri</label>
+                        <div id="edit-team-container" class="glass-input w-full px-2 py-1.5 rounded-xl flex flex-wrap gap-2 items-center cursor-text bg-white/50" onclick="this.querySelector('input').focus()">
+                            <input type="text" class="flex-1 min-w-[120px] bg-transparent outline-none border-none text-gray-800 placeholder-indigo-300 px-2" placeholder="İsim yazıp Enter'a basın">
                         </div>
                         <input type="hidden" name="edit_team" id="edit-team-hidden" required>
                     </div>
                     
                     <div>
-                        <label class="block text-indigo-900 dark:text-indigo-300 font-bold mb-1 text-sm uppercase tracking-wide">Açıklama</label>
-                        <textarea name="edit_desc" required rows="3" class="glass-input w-full px-3 py-2 rounded-xl text-gray-800 dark:text-gray-100 focus:outline-none resize-none"><?php echo htmlspecialchars($project['description']); ?></textarea>
+                        <label class="block text-indigo-900 font-bold mb-1 text-sm uppercase tracking-wide">Açıklama</label>
+                        <textarea name="edit_desc" required rows="3" class="glass-input w-full px-3 py-2 rounded-xl text-gray-800 focus:outline-none resize-none"><?php echo htmlspecialchars($project['description']); ?></textarea>
                     </div>
                     
                     <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold py-3 rounded-xl hover:from-emerald-600 hover:to-teal-600 transition shadow-md">
@@ -293,7 +293,7 @@ require_once 'includes/header.php';
             </div>
 
             <div class="glass-card p-8 rounded-3xl relative overflow-hidden">
-                <h3 class="font-bold text-gray-800 dark:text-indigo-300 mb-6 relative z-10 text-xl border-b border-gray-200/50 pb-3">Videoyu Güncelle</h3>
+                <h3 class="font-bold text-gray-800 mb-6 relative z-10 text-xl border-b border-gray-200/50 pb-3">Videoyu Güncelle</h3>
                 
                 <?php if($project['video_url']): ?>
                     <div class="mb-6 rounded-xl overflow-hidden aspect-video bg-black/80 flex items-center justify-center">
@@ -311,8 +311,8 @@ require_once 'includes/header.php';
                 <form action="dashboard.php" method="POST" enctype="multipart/form-data" class="space-y-4">
                     <input type="hidden" name="update_video" value="1">
                     <div>
-                        <label class="block text-indigo-900 dark:text-indigo-300 font-bold mb-2 text-sm uppercase tracking-wide">Yeni Video Seç (MP4 - Max 50MB)</label>
-                        <input type="file" name="video" accept="video/mp4" required class="glass-input w-full px-4 py-2 rounded-xl text-gray-800 dark:text-gray-100 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 dark:file:bg-indigo-900/50 file:text-indigo-700 dark:file:text-indigo-300 hover:file:bg-indigo-100 dark:hover:file:bg-indigo-800">
+                        <label class="block text-indigo-900 font-bold mb-2 text-sm uppercase tracking-wide">Yeni Video Seç (MP4 - Max 50MB)</label>
+                        <input type="file" name="video" accept="video/mp4" required class="glass-input w-full px-4 py-2 rounded-xl text-gray-800 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
                     </div>
                     <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold py-3 rounded-xl hover:from-indigo-600 hover:to-purple-600 transition shadow-md">
                         Videoyu Değiştir <i class="fa-solid fa-arrows-rotate ml-1"></i>
